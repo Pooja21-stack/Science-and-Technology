@@ -1,55 +1,29 @@
-name: Java CI with Maven
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-jobs:
-  compile:
-    runs-on: windows-latest
-    name: Running Java ${{ matrix.java }} compil
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-
-    - name: Compile code
-      run: mvn compile
-  test:
-    runs-on: ubuntu-latest
-    name: Running tests
-    needs: compile
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Run unit tests
-        run: mvn test
-  build:
-    runs-on: windows-latest
-    name: Run mvn build and generate coverage report
-
-    needs: test
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-
-          java-version: 1.8
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml -Dmaven.test.skip=true
-      - name: generate report codecov
-        run: mvn cobertura:cobertura
-      - name: Upload coverage
-        if: success()
-        run: |
-          curl -s https://codecov.io/bash | bash
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        shell: bash
+name: JAVA 8 And MAVEN Action
+  # You may pin to the exact commit or the version.
+  # uses: kobi-lemberg/github-maven-step@7f20340a98fc9890b1e47260368175df671788b1
+uses: kobi-lemberg/github-maven-step@java8_new
+  with:
+    # Command to run
+    command: 
+    # artifactory realese username variable name
+    artifactory-release-username-variable: 
+    # artifactory realese username variable value
+    artifactory-release-username-value: 
+    # artifactory realese password variable name- name: JAVA 8 And MAVEN Action
+  # You may pin to the exact commit or the version.
+  # uses: kobi-lemberg/github-maven-step@7f20340a98fc9890b1e47260368175df671788b1
+  uses: kobi-lemberg/github-maven-step@java8_new
+  with:
+    # Command to run
+    command: 
+    # artifactory realese username variable name
+    artifactory-release-username-variable: 
+    # artifactory realese username variable value
+    artifactory-release-username-value: 
+    # artifactory realese password variable name
+    artifactory-snapshots-password-variable: 
+    # path to maven settings file
+    path-to-settings: # optional
+    artifactory-snapshots-password-variable: 
+    # path to maven settings file
+    path-to-settings: # optional
