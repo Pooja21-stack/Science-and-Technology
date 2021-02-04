@@ -4,68 +4,43 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+
 
 @Entity
 @Table(name = "sci_user")
+@Data
 public class SciUser extends BaseEntity {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@Getter
-	@Setter
 	@Column(nullable = false)
 	private String firstName;
 	
-	@Getter
-	@Setter
 	private String middleName;
 	
-	@Getter
-	@Setter
 	@Column(nullable = false)
 	private String lastName;
 	
-	@Getter
-	@Setter
 	@Column(nullable = false)
 	private long contact;
 	
-	@Getter
-	@Setter
 	private long contact2;
 	
-	@Getter
-	@Setter
 	@Column(nullable = false)
 	private String email;
 	
-	@Getter
-	@Setter
 	@Column(nullable = false)
 	private String password;
 	
-	@Getter
-	@Setter
 	@Column(nullable = false)
 	private String address;
 	
-	@Getter
-	@Setter
+	private String image;
+	
 	@Column(nullable = false)
 	private long sciUserTypeId;
 	
-	@Getter
-	@Setter
 	@Column(nullable = false)
 	private long sciDesignationId;
 	

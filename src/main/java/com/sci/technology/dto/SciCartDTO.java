@@ -1,4 +1,4 @@
-package com.sci.technology.entity;
+package com.sci.technology.dto;
 
 import java.util.Set;
 
@@ -14,7 +14,7 @@ import lombok.Data;
 @Entity
 @Table(name = "sci_cart")
 @Data
-public class SciCart extends BaseEntity {
+public class SciCartDTO extends BaseEntityDTO {
 	enum status{
 		pending, complete, inProgress;
 	}
@@ -24,10 +24,10 @@ public class SciCart extends BaseEntity {
 	
 	//one cart can contain multiple cart items
 	@OneToMany(mappedBy="cart")
-	private Set<SciCartItem> items;
+	private Set<SciCartItemDTO> items;
 	
 	 //one cart can have one order
 	 @OneToOne(cascade = CascadeType.ALL)
 	 @JoinColumn(name = "id", referencedColumnName = "id")
-	 private SciOrder order;
+	 private SciOrderDTO order;
 }

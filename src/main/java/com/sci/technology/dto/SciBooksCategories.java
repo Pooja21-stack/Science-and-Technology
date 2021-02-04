@@ -1,4 +1,4 @@
-package com.sci.technology.entity;
+package com.sci.technology.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 @Table(name="sci_books_categories")
 @Data
-public class SciBooksCategories extends BaseEntity {
+public class SciBooksCategories extends BaseEntityDTO {
 	
     private long sciBooksId;
     
@@ -20,6 +20,6 @@ public class SciBooksCategories extends BaseEntity {
 	//one categories can have multiple booksCategories.
 	@ManyToOne
     @JoinColumn(name="id", nullable=false)
-    private SciCategories categories;
+    private SciCategoriesDTO categories;
 	
 }

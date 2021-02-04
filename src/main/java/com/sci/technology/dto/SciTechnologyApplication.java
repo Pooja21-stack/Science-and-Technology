@@ -1,4 +1,4 @@
-package com.sci.technology.entity;
+package com.sci.technology.dto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

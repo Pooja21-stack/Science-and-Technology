@@ -4,34 +4,21 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "sci_categories")
+@Data
 public class SciCategories extends BaseEntity{
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@Getter
-	@Setter
 	@Column(nullable = false)
 	private String name;
-	
-	@Getter
-	@Setter
+
 	@Column(nullable = false)
 	private String description;
 	
-	@Getter
-	@Setter
 	//@Column(nullable = false)
 	private long sciCategoriesId;
 	

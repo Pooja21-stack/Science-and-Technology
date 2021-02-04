@@ -1,19 +1,14 @@
-package com.sci.technology.entity;
+package com.sci.technology.dto;
 
 import java.util.Set;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 
 import lombok.Data;
 
-@Entity
-@Table(name="sci_author")
 @Data
-public class SciAuthor extends BaseEntity{
+public class SciAuthorDTO extends BaseEntityDTO{
 	@Column(nullable = false)
     private String name;
 	
@@ -21,7 +16,7 @@ public class SciAuthor extends BaseEntity{
 	
 	//one author can write multiple books
 	@OneToMany(mappedBy="author")
-	private Set<SciBooks> books;
+	private Set<SciBooksDTO> books;
     
    
 }

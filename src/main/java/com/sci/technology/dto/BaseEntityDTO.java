@@ -1,4 +1,4 @@
-package com.sci.technology.entity;
+package com.sci.technology.dto;
 
 import java.util.Date;
 
@@ -15,29 +15,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 import lombok.Data;
 
 @Data
-public class BaseEntity {
+public class BaseEntityDTO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-	@CreatedDate
-	@Column(nullable = false)
-	private Date createdDate;
-	    
-    @LastModifiedDate
-	@Column(nullable = false)
-    private Date modifiedDate;
-	    
-    @CreatedBy
-	@Column(nullable = false)
-    private String createdBy;
-	    
-    @LastModifiedBy
-	@Column(nullable = false)
-	private String modifiedBy;
-	    
-    @Column(nullable = false)
-    private boolean isActive;
-	    
 }
