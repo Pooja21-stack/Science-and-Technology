@@ -1,13 +1,27 @@
 package com.sci.technology.entity;
 
-import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class SciDesignation {
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = "sci_designation")
+public class SciDesignation extends BaseEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Getter
+	@Setter
+	@Column(nullable = false)
 	private String type;
-	private Date createdDate;
-	private String createdBy;
-	private Date modifiedDate;
-	private String modifiedBy;
-	private boolean isActive;
+	
+	
 }
