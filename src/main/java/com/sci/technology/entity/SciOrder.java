@@ -9,11 +9,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Table(name = "sci_order")
 @Data
+@Builder
 public class SciOrder extends BaseEntity {
 	@Column(nullable = false)
     private long sciUserId;

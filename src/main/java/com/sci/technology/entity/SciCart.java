@@ -9,11 +9,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Table(name = "sci_cart")
 @Data
+@Builder
 public class SciCart extends BaseEntity {
 	enum status{
 		pending, complete, inProgress;

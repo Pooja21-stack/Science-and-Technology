@@ -7,12 +7,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Table(name = "sci_cart_item")
 @Data
+@Builder
 public class SciCartItem extends BaseEntity {
 
 	@Column(nullable = false)

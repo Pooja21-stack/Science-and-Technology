@@ -7,13 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Table(name="sci_author")
 @Data
+@Builder
 public class SciAuthor extends BaseEntity{
+	
+
 	@Column(nullable = false)
     private String name;
 	

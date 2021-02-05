@@ -6,11 +6,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Table(name="sci_books_categories")
 @Data
+@Builder
 public class SciBooksCategories extends BaseEntity {
 	
     private long sciBooksId;

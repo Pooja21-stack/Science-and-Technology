@@ -11,6 +11,7 @@ import lombok.*;
 @Entity
 @Table(name = "sci_books_review")
 @Data
+@Builder
 public class SciBooksReview extends BaseEntity {
 	
 	@Column(nullable = false)

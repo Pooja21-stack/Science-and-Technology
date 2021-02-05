@@ -9,11 +9,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Table(name = "sci_payment")
 @Data
+@Builder
 public class SciPayment extends BaseEntity {
 	@Column(nullable = false)
     private String type;

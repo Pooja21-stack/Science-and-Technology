@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 @Table(name="sci_books_categories")
 @Data
-public class SciBooksCategories extends BaseEntityDTO {
+public class SciBooksCategoriesDTO extends BaseEntityDTO {
 	
     private long sciBooksId;
     

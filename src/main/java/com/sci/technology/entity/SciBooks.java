@@ -9,13 +9,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
-
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Table(name = "sci_books")
 @Data
+@Builder
 public class SciBooks extends BaseEntity {
 
 	@Column(nullable = false)
