@@ -3,9 +3,6 @@ package com.sci.technology.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -38,8 +35,9 @@ public class BaseEntity {
     @LastModifiedBy
 	@Column(nullable = false)
     protected String modifiedBy;
-	    
+	   
+   
     @Column(nullable = false)
-    protected boolean isActive;
+    protected boolean isActive = true;
 	    
 }

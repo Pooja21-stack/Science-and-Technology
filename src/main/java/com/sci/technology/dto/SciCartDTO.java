@@ -12,10 +12,6 @@ import lombok.Data;
 
 @Data
 public class SciCartDTO extends BaseEntityDTO {
-	enum status{
-		pending, complete, inProgress;
-	}
-	
 	@Column(nullable = false)
     private long sciUserId;
 	

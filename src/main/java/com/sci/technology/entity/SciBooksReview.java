@@ -28,6 +28,7 @@ public class SciBooksReview extends BaseEntity {
 	@Column(nullable = false)
     private long sciUserId;
 	
+	@Column(nullable = false)
     private String title;
 	
     private int rating;

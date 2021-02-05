@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SciTechnologyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SciTechnologyApplication.class, args);
+		//SpringApplication.run(SciTechnologyApplication.class, args);
 	}
 
 }
