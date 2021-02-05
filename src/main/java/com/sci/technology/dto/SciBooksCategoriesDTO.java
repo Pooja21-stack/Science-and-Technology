@@ -1,15 +1,9 @@
 package com.sci.technology.dto;
 
-import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-
 import lombok.Data;
 
-@Entity
-@Table(name="sci_books_categories")
 @Data
 public class SciBooksCategoriesDTO extends BaseEntityDTO {
 	

@@ -18,6 +18,11 @@ import lombok.Data;
 @Data
 @Builder
 public class SciPayment extends BaseEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected long id;
+	
 	@Column(nullable = false)
     private String type;
   

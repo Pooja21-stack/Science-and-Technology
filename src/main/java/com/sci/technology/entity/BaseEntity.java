@@ -19,27 +19,27 @@ import lombok.Data;
 @Builder
 public class BaseEntity {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//    protected long id;
 
 	@CreatedDate
 	@Column(nullable = false)
-	private Date createdDate;
+	protected Date createdDate;
 	    
     @LastModifiedDate
 	@Column(nullable = false)
-    private Date modifiedDate;
+    protected Date modifiedDate;
 	    
     @CreatedBy
 	@Column(nullable = false)
-    private String createdBy;
+    protected String createdBy;
 	    
     @LastModifiedBy
 	@Column(nullable = false)
-	private String modifiedBy;
+    protected String modifiedBy;
 	    
     @Column(nullable = false)
-    private boolean isActive;
+    protected boolean isActive;
 	    
 }
