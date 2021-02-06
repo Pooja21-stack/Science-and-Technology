@@ -7,6 +7,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Digits;
+
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 
 import lombok.Data;
 
@@ -21,6 +25,7 @@ public class SciOrderDTO extends BaseEntityDTO {
     private String delivery_address;
    
 	@Column(nullable = false)
+	@NumberFormat(style = Style.NUMBER)
     private double total;
    
    	@Column(nullable = false)
@@ -32,6 +37,7 @@ public class SciOrderDTO extends BaseEntityDTO {
     private long sci_transaction_id;
    
    	@Column(nullable = false)
+   	@Digits(integer = 10, fraction = 0)
     private long contact;
     
     //one order can have multiple order_items
