@@ -10,6 +10,8 @@ import javax.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "sci_user")
 @Data
@@ -25,4 +27,8 @@ public class SciUserType extends BaseEntity {
 
 	@Column(nullable = false)
 	private long sciDesignationId;
+
+	@OneToMany(mappedBy="sciUserType")
+	private Set<SciUser> sciUsers;
+
 }

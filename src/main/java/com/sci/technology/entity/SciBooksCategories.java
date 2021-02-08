@@ -22,9 +22,9 @@ public class SciBooksCategories extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
 	
-    private long sciBooksId;
+    private SciBook sciBook;
     
-    private long sciCategoriesId;
+    private SciCategories sciCategoriesId;
 	
 	//one categories can have multiple booksCategories.
 	@ManyToOne

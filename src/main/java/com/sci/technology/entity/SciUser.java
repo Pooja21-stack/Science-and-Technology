@@ -47,12 +47,13 @@ public class SciUser extends BaseEntity {
 	private String address;
 	
 	private String image;
+
+	@ManyToOne
+	@JoinColumn(name="sci_user_type_id", nullable=false)
+	private SciUserType sciUserType;
 	
-	@Column(nullable = false)
-	private long sciUserTypeId;
-	
-	@Column(nullable = false)
-	private long sciDesignationId;
+/*	@Column(nullable = false)
+	private long sciDesignationId;*/
 	
 	//one user can have multiple orders.
 	@OneToMany(mappedBy="userOrder")

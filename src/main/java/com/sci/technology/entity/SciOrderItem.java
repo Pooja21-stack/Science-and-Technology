@@ -46,5 +46,5 @@ public class SciOrderItem extends BaseEntity{
   //one order_item can have one book.
     @OneToOne(cascade = CascadeType.ALL)
 	 @JoinColumn(name = "id", referencedColumnName = "id")
-	 private SciBooks books;
+	 private SciBook books;
 }

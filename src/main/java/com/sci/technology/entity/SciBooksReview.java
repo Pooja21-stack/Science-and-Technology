@@ -21,8 +21,7 @@ public class SciBooksReview extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
 	
-	@Column(nullable = false)
-    private long sciBooksId;
+
 	
 	
 	@Column(nullable = false)
@@ -37,7 +36,11 @@ public class SciBooksReview extends BaseEntity {
 	
 	//one user can give multiple books reviews
 	@ManyToOne
-    @JoinColumn(name="id", nullable=false)
+    @JoinColumn(name="sci_user_id", nullable=false)
     private SciUser userBooksReview;
+
+    @ManyToOne
+    @JoinColumn(name="sci_books_id", nullable=false)
+    private SciBook sciBook;
 	
 }

@@ -30,7 +30,7 @@ public class SciAuthor extends BaseEntity{
 	
 	//one author can write multiple books
 	@OneToMany(mappedBy="author")
-	private Set<SciBooks> books;
+	private Set<SciBook> books;
     
    
 }
