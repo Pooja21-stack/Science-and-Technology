@@ -5,15 +5,15 @@ import java.util.List;
 import org.mapstruct.Mapper;
 
 import com.sci.technology.dto.SciBooksDTO;
-import com.sci.technology.entity.SciBooks;
+import com.sci.technology.entity.SciBook;
 
 
 
 @Mapper
 public interface SciBooksMapper {
 	
-	SciBooksDTO toDto(SciBooks scibooks);
-	SciBooks fromDto(SciBooksDTO scibooksdto);
-	List<SciBooksDTO>  toDtos(List<SciBooks> sciBooks);
+	SciBooksDTO toDto(SciBook scibooks);
+	SciBook fromDto(SciBooksDTO scibooksdto);
+	List<SciBooksDTO>  toDtos(List<SciBook> sciBooks);
 
 }

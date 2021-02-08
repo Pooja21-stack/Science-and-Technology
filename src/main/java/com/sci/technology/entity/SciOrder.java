@@ -1,4 +1,5 @@
 package com.sci.technology.entity;
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,57 +22,53 @@ import lombok.Data;
 @Data
 @Builder
 public class SciOrder extends BaseEntity {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	@Column(name = "sciOrderId")
-    protected long id;
-	
-//	@Column(nullable = false)
-//    private long sciUserId;
-	
-//    private long sciPaymentId;
 
-	@Column(nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected long id;
+
+    @Column(nullable = false)
+    private long sciUserId;
+
+    private long sciPaymentId;
+
+    @Column(nullable = false)
     private String delivery_address;
-   
-	enum status{
-		pending, complete, inProgress;
-	}
-    
-	@Column(nullable = false)
+
+    enum status {
+        pending, complete, inProgress;
+    }
+
+    @Column(nullable = false)
     private double total;
-   
-   	@Column(nullable = false)
+
+    @Column(nullable = false)
     private double latitude;
-   
-   	@Column(nullable = false)
+
+    @Column(nullable = false)
     private double longitude;
-    
-    //private long sci_transaction_id;
-   
-   	@Column(nullable = false)
+
+    private long sci_transaction_id;
+
+    @Column(nullable = false)
     private long contact;
-    
+
     //one order can have multiple order_items
-    @OneToMany(mappedBy="sciOrder")
-	private Set<SciOrderItem> sciOrderItem;
-    
+    @OneToMany(mappedBy = "order")
+    private Set<SciOrderItem> orderItem;
+
     //one user can have multiple orders.
     @ManyToOne
-    @JoinColumn(name="sciUserId", nullable=false)
-    private SciUser sciUser;
-    
+    @JoinColumn(name = "sci_user_id", nullable = false)
+    private SciUser userOrder;
+
     //one cart can have one order
-    @OneToOne(mappedBy = "sciOrder", cascade = CascadeType.ALL)
-    private SciCart sciCart;
-    
+    @OneToOne(mappedBy = "order")
+    private SciCart cart;
+
     //one order can have one payment
-	 @OneToOne(mappedBy = "sciOrder", cascade = CascadeType.ALL)
-	 private SciPayment sciPayment;
-	 
-	 //one order can have one transaction.
-	 @OneToOne(mappedBy = "sciOrder", cascade = CascadeType.ALL)
-	 private SciTransaction sciTransaction;
-    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private SciPayment payment;
+
 }

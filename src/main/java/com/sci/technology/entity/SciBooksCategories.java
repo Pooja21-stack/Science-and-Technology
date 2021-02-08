@@ -1,15 +1,11 @@
 package com.sci.technology.entity;
 
-import java.util.Set;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -24,20 +20,15 @@ public class SciBooksCategories extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciBooksCategoriesId")
     protected long id;
-//	
-//    private long sciBooksId;
-//    
-//    private long sciCategoriesId;
+	
+    private SciBook sciBook;
+    
+    private SciCategories sciCategoriesId;
 	
 	//one categories can have multiple booksCategories.
 	@ManyToOne
-    @JoinColumn(name="sciCategoriesId", nullable=false)
-    private SciCategories sciCategories;
-	
-	//one book_categories can have multiple books.
-	@OneToMany(mappedBy = "sciBooksCategories")
-    private Set<SciBooks> sciBooks;
+    @JoinColumn(name="id", nullable=false)
+    private SciCategories categories;
 	
 }

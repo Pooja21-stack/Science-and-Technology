@@ -21,18 +21,17 @@ public class SciOrderItem extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciOrderItemId")
     protected long id;
 	
-//	@Column(nullable = false)
-//    private long sciOrderId;
+	@Column(nullable = false)
+    private long sciOrderId;
   
 	@Column(nullable = false)
     private String sku;
-// 
-//	@Column(nullable = false)
-//    private long sciBooksId;
-//   
+ 
+	@Column(nullable = false)
+    private long sciBooksId;
+   
 	@Column(nullable = false)
     private int quantity;
    
@@ -41,10 +40,11 @@ public class SciOrderItem extends BaseEntity{
     
     //one order can have multiple order_items
     @ManyToOne
-    @JoinColumn(name="sciOrderId", nullable=false)
-    private SciOrder sciOrder;
+    @JoinColumn(name="id", nullable=false)
+    private SciOrder order;
     
   //one order_item can have one book.
-    @OneToOne(mappedBy="sciOrderItem",cascade = CascadeType.ALL)
-	 private SciBooks sciBooks;
+    @OneToOne(cascade = CascadeType.ALL)
+	 @JoinColumn(name = "id", referencedColumnName = "id")
+	 private SciBook books;
 }
