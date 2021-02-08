@@ -21,6 +21,7 @@ public class SciCategories extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "sciCategoriesId")
     protected long id;
 	
 	@Column(nullable = false)
@@ -29,11 +30,11 @@ public class SciCategories extends BaseEntity{
 	@Column(nullable = false)
 	private String description;
 	
-	//@Column(nullable = false)
-	private long sciCategoriesId;
+//	//@Column(nullable = false)
+//	private long sciCategoriesId;
 	
 	//one categories can have multiple booksCategories.
-	@OneToMany(mappedBy="categories")
-	private Set<SciBooksCategories> booksCategories;
+	@OneToMany(mappedBy="sciCategories")
+	private Set<SciBooksCategories> sciBooksCategories;
 	
 }

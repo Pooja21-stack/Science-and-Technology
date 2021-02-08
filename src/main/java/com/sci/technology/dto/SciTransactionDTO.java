@@ -9,17 +9,11 @@ public class SciTransactionDTO extends BaseEntityDTO {
 	@Column(nullable = false)
 	private String content;
 	
-	@Column(nullable = false)
-	private long sciUserId;
-
-	@Column(nullable = false)
-	private long sciOrderId;
-
-	@Column(nullable = false)
-	private long sciPaymentId;
+	private SciUserDTO sciUserDTO;
 	
-	//one payment can have one transaction
-    @OneToOne(mappedBy = "transaction")
-    private SciPaymentDTO payment;
+	private SciOrderDTO sciOrderDTO;
+
+	private SciPaymentDTO sciPaymentDTO;
+	
 	
 }

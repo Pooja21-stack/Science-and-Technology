@@ -16,10 +16,9 @@ import lombok.Data;
 
 @Data
 public class SciOrderDTO extends BaseEntityDTO {
-	@Column(nullable = false)
-    private long sciUserId;
+    private SciUserDTO sciUserDTO;
 	
-    private long sciPaymentId;
+    private SciPaymentDTO sciPaymentDTO;
 
 	@Column(nullable = false)
     private String delivery_address;
@@ -34,29 +33,16 @@ public class SciOrderDTO extends BaseEntityDTO {
    	@Column(nullable = false)
     private double longitude;
     
-    private long sci_transaction_id;
+    private SciTransactionDTO sciTransactionDTO;
+    
+    private SciCartDTO	sciCartDTO;
+    
+    private Set<SciOrderItemDTO> sciOrderItemDTO;
    
    	@Column(nullable = false)
    	@Digits(integer = 10, fraction = 0)
     private long contact;
     
-    //one order can have multiple order_items
-    @OneToMany(mappedBy="order")
-	private Set<SciOrderItemDTO> orderItem;
-    
-    //one user can have multiple orders.
-    @ManyToOne
-    @JoinColumn(name="id", nullable=false)
-    private SciUserDTO user;
-    
-    //one cart can have one order
-    @OneToOne(mappedBy = "order")
-    private SciCartDTO cart;
-    
-    //one order can have one payment
-	 @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "id", referencedColumnName = "id")
-	 private SciPaymentDTO payment;
    
     
 }

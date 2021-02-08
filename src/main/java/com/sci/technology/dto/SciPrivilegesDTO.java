@@ -6,8 +6,7 @@ import lombok.Data;
 
 @Data
 public class SciPrivilegesDTO extends BaseEntityDTO {
-	@Column(nullable = false)
-	private long sciUserId;
+	private SciUserDTO sciUserDTO;
 	
 	@Column(nullable = false)
 	private String role;

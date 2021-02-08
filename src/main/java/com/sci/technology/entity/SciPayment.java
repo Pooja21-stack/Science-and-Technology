@@ -21,6 +21,7 @@ public class SciPayment extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "sciPaymentId")
     protected long id;
 	
 	@Column(nullable = false)
@@ -35,15 +36,14 @@ public class SciPayment extends BaseEntity {
 	enum status{
 		pending, complete, inProgress;
 	}
-	
     
     //one order can have one payment
-    @OneToOne(mappedBy = "payment")
+    @OneToOne
+    @JoinColumn(name = "sciOrderId")
     private SciOrder order;
     
     //one payment can have one transaction
-    @OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id", referencedColumnName = "id")
-	private SciTransaction transaction;
+    @OneToOne(mappedBy = "sciPayment",cascade = CascadeType.ALL)
+	private SciTransaction sciTransaction;
     
 }

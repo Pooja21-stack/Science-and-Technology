@@ -1,21 +1,19 @@
 package com.sci.technology.dto;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Pattern;
 
+import com.sci.technology.entity.SciBooks;
+import com.sci.technology.entity.SciUser;
+
 import lombok.Data;
 
 @Data
 public class SciBooksReviewDTO extends BaseEntityDTO {
-	
-	@Column(nullable = false)
-    private long sciBooksId;
-	
-	@Column(nullable = false)
-    private long sciUserId;
-	
 	@Column(nullable = false)
 	@Pattern(regexp="^[A-Za-z]*$",message = "Invalid Input")
     private String title;
@@ -23,12 +21,5 @@ public class SciBooksReviewDTO extends BaseEntityDTO {
     private int rating;
 	
     private String description;
-	
-	//one user can give multiple books reviews
-	@ManyToOne
-    @JoinColumn(name="id", nullable=false)
-    private SciUserDTO userBooksReview;
-
-
 	
 }

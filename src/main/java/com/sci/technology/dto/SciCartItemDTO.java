@@ -13,28 +13,16 @@ import lombok.Data;
 @Data
 public class SciCartItemDTO extends BaseEntityDTO {
 
-	@Column(nullable = false)
-    private long sciBooksId;
+	private SciBooksDTO sciBooksDTO;
 	
-	@Column(nullable = false)
-    private long sciCartId;
-
-	@Column(nullable = false)
-    private String sku;
-
-	@NumberFormat(style = Style.NUMBER)
-    private double price;
+    private SciCartDTO sciCartDTO;
+//
+//	@NumberFormat(style = Style.NUMBER)
+//    private double price;
 
 	@Column(nullable = false)
 	@NumberFormat(style = Style.NUMBER)
     private int quantity;
 	
-	//one cart can contain multiple cart items
-	@ManyToOne
-    @JoinColumn(name="id", nullable=false)
-    private SciCartDTO cart;
-	
-	//one cart_item can have one book.
-	@OneToOne(mappedBy = "books")
-	private SciCartItemDTO cartItem;
+
 }

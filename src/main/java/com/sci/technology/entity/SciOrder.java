@@ -23,13 +23,14 @@ import lombok.Data;
 public class SciOrder extends BaseEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@Column(name = "sciOrderId")
     protected long id;
 	
-	@Column(nullable = false)
-    private long sciUserId;
+//	@Column(nullable = false)
+//    private long sciUserId;
 	
-    private long sciPaymentId;
+//    private long sciPaymentId;
 
 	@Column(nullable = false)
     private String delivery_address;
@@ -47,27 +48,30 @@ public class SciOrder extends BaseEntity {
    	@Column(nullable = false)
     private double longitude;
     
-    private long sci_transaction_id;
+    //private long sci_transaction_id;
    
    	@Column(nullable = false)
     private long contact;
     
     //one order can have multiple order_items
-    @OneToMany(mappedBy="order")
-	private Set<SciOrderItem> orderItem;
+    @OneToMany(mappedBy="sciOrder")
+	private Set<SciOrderItem> sciOrderItem;
     
     //one user can have multiple orders.
     @ManyToOne
-    @JoinColumn(name="id", nullable=false)
-    private SciUser user;
+    @JoinColumn(name="sciUserId", nullable=false)
+    private SciUser sciUser;
     
     //one cart can have one order
-    @OneToOne(mappedBy = "order")
-    private SciCart cart;
+    @OneToOne(mappedBy = "sciOrder", cascade = CascadeType.ALL)
+    private SciCart sciCart;
     
     //one order can have one payment
-	 @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "id", referencedColumnName = "id")
-	 private SciPayment payment;
+	 @OneToOne(mappedBy = "sciOrder", cascade = CascadeType.ALL)
+	 private SciPayment sciPayment;
+	 
+	 //one order can have one transaction.
+	 @OneToOne(mappedBy = "sciOrder", cascade = CascadeType.ALL)
+	 private SciTransaction sciTransaction;
     
 }

@@ -17,11 +17,7 @@ public class SciCategoriesDTO extends BaseEntityDTO{
 	@Column(nullable = false)
 	private String description;
 	
-	//@Column(nullable = false)
-	private long sciCategoriesId;
 	
-	//one categories can have multiple booksCategories.
-	@OneToMany(mappedBy="categories")
-	private Set<SciBooksCategoriesDTO> booksCategories;
+	private Set<SciBooksCategoriesDTO> sciBooksCategorieDTOs;
 	
 }

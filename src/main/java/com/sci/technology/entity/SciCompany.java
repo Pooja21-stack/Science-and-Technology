@@ -18,6 +18,7 @@ public class SciCompany extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "sciCompanyId")
     protected long id;
 	
 	@Column(nullable = false)
