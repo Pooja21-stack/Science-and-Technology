@@ -16,11 +16,8 @@ import lombok.Data;
 
 @Data
 public class BaseEntityDTO {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected long id;
-	
+	protected long id;
+	 
 	@CreatedDate
 	@Column(nullable = false)
 	protected Date createdDate;
@@ -38,5 +35,5 @@ public class BaseEntityDTO {
     protected String modifiedBy;
 	    
     @Column(nullable = false)
-    protected boolean isActive;
+    protected boolean isActive = true;
 }

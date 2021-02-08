@@ -1,15 +1,23 @@
 package com.sci.technology.dto;
 import java.sql.Date;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
+
+import com.sci.technology.entity.SciAuthor;
+import com.sci.technology.entity.SciBooksCategories;
+import com.sci.technology.entity.SciBooksReview;
+import com.sci.technology.entity.SciCartItem;
+import com.sci.technology.entity.SciOrderItem;
 
 import lombok.Data;
 
@@ -21,6 +29,9 @@ public class SciBooksDTO extends BaseEntityDTO {
 	
 	@Column(nullable = false)
 	private String description;
+	
+	@Column(nullable = false)
+    private String sku;
 	
 	@Column(nullable = false)
 	@NumberFormat(style = Style.NUMBER)
@@ -40,23 +51,11 @@ public class SciBooksDTO extends BaseEntityDTO {
 	@Column(nullable = false)
 	private String image;
 	
-	@Column(nullable = false)
-	//@OneToMany(cascade = CascadeType.ALL)
-	private long sciAuthorId;
+	private SciAuthorDTO sciAuthorDTO;
 	
-	//one author can write multiple books
-	@ManyToOne
-    @JoinColumn(name="id", nullable=false)
-    private SciAuthorDTO author;
+	private Set<SciBooksReviewDTO> sciBooksReviewDTO;
+//	
 	
-    //one cart_item can have one book.
-	 @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "id", referencedColumnName = "id")
-	 private SciBooksDTO books;
-
-	 //one order_item can have one book.
-	 @OneToOne(mappedBy = "books")
-	 private SciOrderItemDTO orderItem;
 	
 	
 }

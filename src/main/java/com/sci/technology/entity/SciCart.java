@@ -2,7 +2,6 @@ package com.sci.technology.entity;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,20 +23,33 @@ public class SciCart extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "sciCartId")
     protected long id;
-	enum status{
-		pending, complete, inProgress;
-	}
 	
-	@Column(nullable = false)
-    private long sciUserId;
+//	@Column(name = "status")
+	
+	@Column(name = "status")
+	private String status;
+//	enum status{
+//		pending, complete, inProgress;
+//	}
+//	
+//	@Column(nullable = false)
+//    private long sciUserId;
 	
 	//one cart can contain multiple cart items
-	@OneToMany(mappedBy="cart")
-	private Set<SciCartItem> items;
+	@OneToMany(mappedBy="sciCart")
+	private Set<SciCartItem> sciCartItem;
 	
 	 //one cart can have one order
-	 @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "id", referencedColumnName = "id")
-	 private SciOrder order;
+	 @OneToOne
+	 @JoinColumn(name = "sciOrderId")
+	 private SciOrder sciOrder;
+	 
+	//one user can have one cart only.
+	 @OneToOne
+	 @JoinColumn(name = "sciUserId")
+	 private SciUser sciUser;
+	 
+	 
 }

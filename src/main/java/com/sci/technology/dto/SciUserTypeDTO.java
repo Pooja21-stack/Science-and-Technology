@@ -9,5 +9,5 @@ public class SciUserTypeDTO extends BaseEntityDTO {
 	private String userType;
 
 	@Column(nullable = false)
-	private long sciDesignationId;
+	private SciDesignationDTO sciDesignationDTO;
 }

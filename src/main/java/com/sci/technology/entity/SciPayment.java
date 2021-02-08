@@ -21,29 +21,29 @@ public class SciPayment extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "sciPaymentId")
     protected long id;
 	
-	@Column(nullable = false)
+	@Column(name = "type",nullable = false)
     private String type;
   
-	@Column(nullable = false)
+	@Column(name = "amount",nullable = false)
     private double amount;
     
-	@Column(nullable = false)
+	@Column(name = "mode",nullable = false)
     private String mode;
 	
 	enum status{
 		pending, complete, inProgress;
 	}
-	
     
     //one order can have one payment
-    @OneToOne(mappedBy = "payment")
+    @OneToOne
+    @JoinColumn(name = "sciOrderId")
     private SciOrder order;
     
     //one payment can have one transaction
-    @OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id", referencedColumnName = "id")
-	private SciTransaction transaction;
+    @OneToOne(mappedBy = "sciPayment",cascade = CascadeType.ALL)
+	private SciTransaction sciTransaction;
     
 }

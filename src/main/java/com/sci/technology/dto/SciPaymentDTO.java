@@ -21,16 +21,10 @@ public class SciPaymentDTO extends BaseEntityDTO {
     
 	@Column(nullable = false)
     private String mode;
-	
-	
-    //one order can have one payment
-    @OneToOne(mappedBy = "payment")
-    private SciOrderDTO order;
+
+    private SciOrderDTO sciOrderDTO;
     
-    //one payment can have one transaction
-    @OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id", referencedColumnName = "id")
-	private SciTransactionDTO transaction;
+	private SciTransactionDTO sciTransactionDTO;
 	
   
 }

@@ -20,17 +20,19 @@ import lombok.Data;
 public class SciAuthor extends BaseEntity{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@Column(name = "sciAuthorId")
     protected long id;
 	
-	@Column(nullable = false)
+	@Column(name = "name",nullable = false)
     private String name;
 	
+	@Column(name = "image")
 	private String image;
 	
 	//one author can write multiple books
-	@OneToMany(mappedBy="author")
-	private Set<SciBooks> books;
+	@OneToMany(mappedBy="sciAuthor")
+	private Set<SciBooks> sciBooks;
     
    
 }

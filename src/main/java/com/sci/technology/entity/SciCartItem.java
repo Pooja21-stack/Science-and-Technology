@@ -1,5 +1,6 @@
 package com.sci.technology.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,17 +22,10 @@ public class SciCartItem extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "sciCartItemId")
     protected long id;
-
-	@Column(nullable = false)
-    private long sciBooksId;
 	
-	@Column(nullable = false)
-    private long sciCartId;
-
-	@Column(nullable = false)
-    private String sku;
-
+	@Column(name = "price")
     private double price;
 
 	@Column(nullable = false)
@@ -39,11 +33,11 @@ public class SciCartItem extends BaseEntity {
 	
 	//one cart can contain multiple cart items
 	@ManyToOne
-    @JoinColumn(name="id", nullable=false)
-    private SciCart cart;
+    @JoinColumn(name="sciCartId", nullable=false)
+    private SciCart sciCart;
 	
 	//one cart_item can have one book.
-	 @OneToOne(mappedBy = "books")
-	 private SciCartItem cartItem;
+	 @OneToOne(mappedBy = "sciBooks", cascade = CascadeType.ALL)
+	 private SciCartItem sciCartItem;
 
 }
