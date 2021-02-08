@@ -1,7 +1,5 @@
 package com.sci.technology.dto;
 import javax.persistence.Column;
-import javax.persistence.OneToOne;
-
 import lombok.Data;
 
 @Data

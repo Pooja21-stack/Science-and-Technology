@@ -19,7 +19,7 @@ public class SciDesignation extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciDesignationId")
+	@Column(name = "id")
     protected long id;
 	
 	@Column(name = "type",nullable = false)
@@ -27,12 +27,12 @@ public class SciDesignation extends BaseEntity {
 	
 	//one user can have one designation
 	@OneToOne
-	@JoinColumn(name = "sciUserId")
+	@JoinColumn(name = "id")
 	private SciUser sciUser;
 	
 	//one usertype can have one designation
 	@OneToOne
-	@JoinColumn(name = "sciUserTypeId")
+	@JoinColumn(name = "id")
 	private SciUserType sciUserType;
 	
 }

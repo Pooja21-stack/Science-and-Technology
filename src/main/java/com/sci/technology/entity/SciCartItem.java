@@ -22,7 +22,7 @@ public class SciCartItem extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciCartItemId")
+	@Column(name = "id")
     protected long id;
 	
 	@Column(name = "price")
@@ -33,11 +33,11 @@ public class SciCartItem extends BaseEntity {
 	
 	//one cart can contain multiple cart items
 	@ManyToOne
-    @JoinColumn(name="sciCartId", nullable=false)
+    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
     private SciCart sciCart;
 	
 	//one cart_item can have one book.
-	 @OneToOne(mappedBy = "sciBooks", cascade = CascadeType.ALL)
-	 private SciCartItem sciCartItem;
+	 @OneToOne(mappedBy = "sciCartItem", cascade = CascadeType.ALL)
+	 private SciBooks sciBooks;
 
 }

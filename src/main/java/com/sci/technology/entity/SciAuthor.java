@@ -21,7 +21,7 @@ public class SciAuthor extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	@Column(name = "sciAuthorId")
+	@Column(name = "id")
     protected long id;
 	
 	@Column(name = "name",nullable = false)

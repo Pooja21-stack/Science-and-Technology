@@ -24,7 +24,7 @@ import lombok.Data;
 public class SciUser extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciUserId")
+	@Column(name = "id")
     protected long id;
 	
 
@@ -57,7 +57,7 @@ public class SciUser extends BaseEntity {
 	
 	
 	//one user can have multiple orders.
-	@OneToMany(mappedBy="sciUserOrder")
+	@OneToMany(mappedBy="sciUser")
 	private Set<SciOrder> sciOrder;
 	
 	//one user can give multiple books reviews

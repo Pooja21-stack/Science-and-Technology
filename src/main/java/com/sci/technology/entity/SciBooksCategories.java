@@ -24,16 +24,15 @@ public class SciBooksCategories extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciBooksCategoriesId")
+	@Column(name = "id")
     protected long id;
-//	
-//    private long sciBooksId;
-//    
-//    private long sciCategoriesId;
+	
+	@Column(name = "name",nullable = false)
+	private String name;
 	
 	//one categories can have multiple booksCategories.
 	@ManyToOne
-    @JoinColumn(name="sciCategoriesId", nullable=false)
+    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
     private SciCategories sciCategories;
 	
 	//one book_categories can have multiple books.

@@ -39,7 +39,7 @@ public class SciBooks extends BaseEntity {
 	@Column(name = "price",nullable = false)
 	private double price;
 	
-	@Column(name = "as_available",nullable = false)
+	@Column(name = "is_available",nullable = false)
 	private boolean isAvailable;
 	
 	@Column(name = "quantity",nullable = false)
@@ -54,22 +54,22 @@ public class SciBooks extends BaseEntity {
 	
 	//one author can write multiple books
 	@ManyToOne
-    @JoinColumn(name="sciAuthorId", nullable=false)
+    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
     private SciAuthor sciAuthor;
 	
 	//one cart_item can have one book.
 	@OneToOne
-	@JoinColumn(name = "sciCartItemId")
+	@JoinColumn(name = "id")
 	private SciCartItem sciCartItem;
 
 	//one order_item can have one book.
 	@OneToOne
-	@JoinColumn(name = "sciOrderItemId")
+	@JoinColumn(name = "id")
 	private SciOrderItem sciOrderItem;
 	 
 	//one book_categories can have multiple books.
 	@ManyToOne
-	@JoinColumn(name = "sciBooksCategoriesId")
+	@JoinColumn(name = "id",insertable = false, updatable= false)
 	private SciBooksCategories sciBooksCategories;
 	
 	@OneToMany(mappedBy="sciBooks")

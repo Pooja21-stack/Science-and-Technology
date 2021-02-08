@@ -24,13 +24,8 @@ public class SciOrder extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	@Column(name = "sciOrderId")
+	@Column(name = "id")
     protected long id;
-	
-//	@Column(nullable = false)
-//    private long sciUserId;
-	
-//    private long sciPaymentId;
 
 	@Column(name = "delivery_address",nullable = false)
     private String delivery_address;
@@ -48,7 +43,8 @@ public class SciOrder extends BaseEntity {
    	@Column(name = "longitude",nullable = false)
     private double longitude;
     
-    //private long sci_transaction_id;
+   	@Column(name = "receipt_path",nullable = false)
+    private double recieptPath;
    
    	@Column(name = "contact",nullable = false)
     private long contact;
@@ -59,7 +55,7 @@ public class SciOrder extends BaseEntity {
     
     //one user can have multiple orders.
     @ManyToOne
-    @JoinColumn(name="sciUserId", nullable=false)
+    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
     private SciUser sciUser;
     
     //one cart can have one order

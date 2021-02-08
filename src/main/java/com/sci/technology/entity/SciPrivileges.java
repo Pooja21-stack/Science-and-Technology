@@ -19,7 +19,7 @@ import lombok.Data;
 public class SciPrivileges extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciPrivilegesId")
+	@Column(name = "id")
     protected long id;
 	
 //	@Column(nullable = false)
@@ -30,11 +30,11 @@ public class SciPrivileges extends BaseEntity {
 	
 	//one usertype can have multiple privileges
 	@ManyToOne
-    @JoinColumn(name="id", nullable=false)
-    private SciUserType userTypePrivilege;
+    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
+    private SciUserType sciUserType;
 	
 	 @ManyToOne
-	 @JoinColumn(name = "sciUserId")
+	 @JoinColumn(name = "id",insertable = false, updatable= false)
 	 private SciUser sciUser;
 	
 	

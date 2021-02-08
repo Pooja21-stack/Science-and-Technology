@@ -24,7 +24,7 @@ public class SciUserType extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciUserTypeId")
+	@Column(name = "id")
     protected long id;
 	
 	@Column(name = "user_type",nullable = false)
@@ -32,12 +32,12 @@ public class SciUserType extends BaseEntity {
 	
 	//one user can of one user type
 	 @OneToOne
-	 @JoinColumn(name = "sciUserId")
+	 @JoinColumn(name = "id")
 	 private SciUser sciUser;
 	
 	//one usertype can have multiple privileges
-	@OneToMany(mappedBy="userTypePrivilege")
-	private Set<SciPrivileges> privileges;
+	@OneToMany(mappedBy="sciUserType")
+	private Set<SciPrivileges> sciPrivileges;
 	
 	 //one usertype can have one designation
 	 @OneToOne(mappedBy = "sciUserType", cascade = CascadeType.ALL)

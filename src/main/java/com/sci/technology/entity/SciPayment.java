@@ -21,7 +21,7 @@ public class SciPayment extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciPaymentId")
+	@Column(name = "id")
     protected long id;
 	
 	@Column(name = "type",nullable = false)
@@ -39,8 +39,8 @@ public class SciPayment extends BaseEntity {
     
     //one order can have one payment
     @OneToOne
-    @JoinColumn(name = "sciOrderId")
-    private SciOrder order;
+    @JoinColumn(name = "id")
+    private SciOrder sciOrder;
     
     //one payment can have one transaction
     @OneToOne(mappedBy = "sciPayment",cascade = CascadeType.ALL)

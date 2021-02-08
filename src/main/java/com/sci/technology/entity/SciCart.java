@@ -23,7 +23,7 @@ public class SciCart extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciCartId")
+	@Column(name = "id")
     protected long id;
 	
 //	@Column(name = "status")
@@ -33,9 +33,7 @@ public class SciCart extends BaseEntity {
 //	enum status{
 //		pending, complete, inProgress;
 //	}
-//	
-//	@Column(nullable = false)
-//    private long sciUserId;
+
 	
 	//one cart can contain multiple cart items
 	@OneToMany(mappedBy="sciCart")
@@ -43,12 +41,12 @@ public class SciCart extends BaseEntity {
 	
 	 //one cart can have one order
 	 @OneToOne
-	 @JoinColumn(name = "sciOrderId")
+	 @JoinColumn(name = "id")
 	 private SciOrder sciOrder;
 	 
 	//one user can have one cart only.
 	 @OneToOne
-	 @JoinColumn(name = "sciUserId")
+	 @JoinColumn(name = "id")
 	 private SciUser sciUser;
 	 
 	 

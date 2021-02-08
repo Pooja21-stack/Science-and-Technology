@@ -21,20 +21,11 @@ public class SciTransaction extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciTransactionId")
+	@Column(name = "id")
     protected long id;
 	
 	@Column(name = "content",nullable = false)
 	private String content;
-	
-//	@Column(nullable = false)
-//	private long sciUserId;
-
-//	@Column(nullable = false)
-//	private long sciOrderId;
-
-//	@Column(nullable = false)
-//	private long sciPaymentId;
 	
 //	enum status{
 //		pending, complete, inProgress;
@@ -42,18 +33,18 @@ public class SciTransaction extends BaseEntity {
 	
 	//one payment can have one transaction
     @OneToOne
-    @JoinColumn(name = "sciPaymentId")
+    @JoinColumn(name = "id")
     private SciPayment sciPayment;
     
     
     //one order can have one transaction
     @OneToOne
-    @JoinColumn(name = "sciOrderId")
+    @JoinColumn(name = "id")
     private SciOrder sciOrder;
     
     //one user have multiple transactions 
     @ManyToOne
-    @JoinColumn(name = "sciUserId")
+    @JoinColumn(name = "id",insertable = false, updatable= false)
     private SciUser sciUser;
     
 	

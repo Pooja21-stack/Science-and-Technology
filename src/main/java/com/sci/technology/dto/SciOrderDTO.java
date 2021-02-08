@@ -1,12 +1,7 @@
 package com.sci.technology.dto;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Digits;
 
 import org.springframework.format.annotation.NumberFormat;

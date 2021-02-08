@@ -2,7 +2,6 @@ package com.sci.technology.dto;
 import java.util.Set;
 
 import javax.persistence.Column;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;

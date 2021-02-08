@@ -21,27 +21,16 @@ public class SciOrderItem extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciOrderItemId")
+	@Column(name = "id")
     protected long id;
 	
-//	@Column(nullable = false)
-//    private long sciOrderId;
   
-	@Column(nullable = false)
-    private String sku;
-// 
-//	@Column(nullable = false)
-//    private long sciBooksId;
-//   
 	@Column(name = "quantity",nullable = false)
     private int quantity;
-   
-//	@Column(name = "content",nullable = false)
-//    private String content;
     
     //one order can have multiple order_items
     @ManyToOne
-    @JoinColumn(name="sciOrderId", nullable=false)
+    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
     private SciOrder sciOrder;
     
   //one order_item can have one book.

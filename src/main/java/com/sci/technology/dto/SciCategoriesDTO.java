@@ -3,7 +3,6 @@ package com.sci.technology.dto;
 import java.util.Set;
 
 import javax.persistence.Column;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Pattern;
 
 import lombok.Data;
