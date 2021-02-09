@@ -5,10 +5,11 @@ import org.mapstruct.Mapper;
 import com.sci.technology.dto.SciPaymentDTO;
 import com.sci.technology.entity.SciPayment;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface SciPaymentMapper {
-	
+
 	SciPaymentDTO toDto(SciPayment sciPayment);
+
 	SciPayment fromDto(SciPaymentDTO sciPaymentDTO);
 
 }

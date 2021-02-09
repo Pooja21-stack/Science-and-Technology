@@ -8,28 +8,32 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BaseEntityDTO {
 	protected long id;
-	 
+
 	@CreatedDate
 	@Column(nullable = false)
 	protected Date createdDate;
-	    
-    @LastModifiedDate
+
+	@LastModifiedDate
 	@Column(nullable = false)
-    protected Date modifiedDate;
-	    
-    @CreatedBy
+	protected Date modifiedDate;
+
+	@CreatedBy
 	@Column(nullable = false)
-    protected String createdBy;
-	    
-    @LastModifiedBy
+	protected String createdBy;
+
+	@LastModifiedBy
 	@Column(nullable = false)
-    protected String modifiedBy;
-	    
-    @Column(nullable = false)
-    protected boolean isActive = true;
+	protected String modifiedBy;
+
+	@Column(nullable = false)
+	protected boolean isActive = true;
 }

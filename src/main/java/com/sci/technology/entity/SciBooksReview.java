@@ -15,29 +15,31 @@ import lombok.*;
 @Table(name = "sci_books_review")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SciBooksReview extends BaseEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-    protected long id;
-	
-	@Column(name = "title",nullable = false)
-    private String title;
-	
-	@Column(name = "rating",nullable = false)
-    private int rating;
-	
+	@Column(name = "id")
+	protected long id;
+
+	@Column(name = "title", nullable = false)
+	private String title;
+
+	@Column(name = "rating", nullable = false)
+	private int rating;
+
 	@Column(name = "description")
-    private String description;
-	
-	//one user can give multiple books reviews
+	private String description;
+
+	// one user can give multiple books reviews
 	@ManyToOne
-    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
-    private SciUser sciUser;
-	
+	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+	private SciUser sciUser;
+
 	@ManyToOne
-    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
-    private SciBooks sciBooks;
-	
+	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+	private SciBooks sciBooks;
+
 }

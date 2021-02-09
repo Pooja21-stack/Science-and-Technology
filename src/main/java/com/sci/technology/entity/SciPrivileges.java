@@ -9,33 +9,36 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_privileges")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SciPrivileges extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    protected long id;
-	
+	protected long id;
+
 //	@Column(nullable = false)
 //	private long sciUserId;
-	
-	@Column(name = "role",nullable = false)
+
+	@Column(name = "role", nullable = false)
 	private String role;
-	
-	//one usertype can have multiple privileges
+
+	// one usertype can have multiple privileges
 	@ManyToOne
-    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
-    private SciUserType sciUserType;
-	
-	 @ManyToOne
-	 @JoinColumn(name = "id",insertable = false, updatable= false)
-	 private SciUser sciUser;
-	
-	
+	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+	private SciUserType sciUserType;
+
+	@ManyToOne
+	@JoinColumn(name = "id", insertable = false, updatable = false)
+	private SciUser sciUser;
+
 }

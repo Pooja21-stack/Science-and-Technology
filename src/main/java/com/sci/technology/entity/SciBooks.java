@@ -1,4 +1,5 @@
 package com.sci.technology.entity;
+
 import java.sql.Date;
 import java.util.Set;
 
@@ -13,66 +14,69 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_books")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SciBooks extends BaseEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    protected long id;	
+	protected long id;
 
-	@Column(name = "title",nullable = false)
+	@Column(name = "title", nullable = false)
 	private String title;
-	
-	@Column(name = "description",nullable = false)
+
+	@Column(name = "description", nullable = false)
 	private String description;
-	
-	@Column(name = "sku",nullable = false)
-    private String sku;
-	
-	@Column(name = "price",nullable = false)
+
+	@Column(name = "sku", nullable = false)
+	private String sku;
+
+	@Column(name = "price", nullable = false)
 	private double price;
-	
-	@Column(name = "is_available",nullable = false)
+
+	@Column(name = "is_available", nullable = false)
 	private boolean isAvailable;
-	
-	@Column(name = "quantity",nullable = false)
+
+	@Column(name = "quantity", nullable = false)
 	private int quantity;
-	
-	@Column(name = "publishing_date",nullable = false)
+
+	@Column(name = "publishing_date", nullable = false)
 	private Date publishingDate;
-	
-	@Column(name = "image",nullable = false)
+
+	@Column(name = "image", nullable = false)
 	private String image;
 
-	
-	//one author can write multiple books
+	// one author can write multiple books
 	@ManyToOne
-    @JoinColumn(name="id", nullable=false,insertable = false, updatable= false)
-    private SciAuthor sciAuthor;
-	
-	//one cart_item can have one book.
+	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+	private SciAuthor sciAuthor;
+
+	// one cart_item can have one book.
 	@OneToOne
 	@JoinColumn(name = "id")
 	private SciCartItem sciCartItem;
 
-	//one order_item can have one book.
+	// one order_item can have one book.
 	@OneToOne
 	@JoinColumn(name = "id")
 	private SciOrderItem sciOrderItem;
-	 
-	//one book_categories can have multiple books.
+
+	// one book_categories can have multiple books.
 	@ManyToOne
-	@JoinColumn(name = "id",insertable = false, updatable= false)
+	@JoinColumn(name = "id", insertable = false, updatable = false)
 	private SciBooksCategories sciBooksCategories;
-	
-	@OneToMany(mappedBy="sciBooks")
+
+	@OneToMany(mappedBy = "sciBooks")
 	private Set<SciBooksReview> sciBooksReview;
-	
+
 }
