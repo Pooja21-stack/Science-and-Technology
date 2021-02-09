@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Data
 public class SciAuthor extends BaseEntity {
 
 	@Id
@@ -36,37 +38,5 @@ public class SciAuthor extends BaseEntity {
 	@OneToMany(mappedBy = "sciAuthor")
 	private Set<SciBooks> sciBooks;
 
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public Set<SciBooks> getSciBooks() {
-		return sciBooks;
-	}
-
-	public void setSciBooks(Set<SciBooks> sciBooks) {
-		this.sciBooks = sciBooks;
-	}
 
 }
