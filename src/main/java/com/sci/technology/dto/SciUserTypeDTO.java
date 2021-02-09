@@ -3,10 +3,9 @@ package com.sci.technology.dto;
 import javax.persistence.Column;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class SciUserTypeDTO extends BaseEntityDTO {
@@ -15,4 +14,20 @@ public class SciUserTypeDTO extends BaseEntityDTO {
 
 	@Column(nullable = false)
 	private SciDesignationDTO sciDesignationDTO;
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public SciDesignationDTO getSciDesignationDTO() {
+		return sciDesignationDTO;
+	}
+
+	public void setSciDesignationDTO(SciDesignationDTO sciDesignationDTO) {
+		this.sciDesignationDTO = sciDesignationDTO;
+	}
 }

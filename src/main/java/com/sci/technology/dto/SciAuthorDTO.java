@@ -4,10 +4,9 @@ import javax.persistence.Column;
 import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class SciAuthorDTO extends BaseEntityDTO {
@@ -17,5 +16,21 @@ public class SciAuthorDTO extends BaseEntityDTO {
 	private String name;
 
 	private String image;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 }

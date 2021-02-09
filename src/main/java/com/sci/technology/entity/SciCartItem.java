@@ -13,12 +13,10 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_cart_item")
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -43,5 +41,45 @@ public class SciCartItem extends BaseEntity {
 	// one cart_item can have one book.
 	@OneToOne(mappedBy = "sciCartItem", cascade = CascadeType.ALL)
 	private SciBooks sciBooks;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public SciCart getSciCart() {
+		return sciCart;
+	}
+
+	public void setSciCart(SciCart sciCart) {
+		this.sciCart = sciCart;
+	}
+
+	public SciBooks getSciBooks() {
+		return sciBooks;
+	}
+
+	public void setSciBooks(SciBooks sciBooks) {
+		this.sciBooks = sciBooks;
+	}
 
 }

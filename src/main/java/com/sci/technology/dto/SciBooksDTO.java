@@ -10,10 +10,8 @@ import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SciBooksDTO extends BaseEntityDTO {
@@ -49,5 +47,85 @@ public class SciBooksDTO extends BaseEntityDTO {
 
 	private Set<SciBooksReviewDTO> sciBooksReviewDTO;
 //	
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getSku() {
+		return sku;
+	}
+
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public Date getPublishingDate() {
+		return publishingDate;
+	}
+
+	public void setPublishingDate(Date publishingDate) {
+		this.publishingDate = publishingDate;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public SciAuthorDTO getSciAuthorDTO() {
+		return sciAuthorDTO;
+	}
+
+	public void setSciAuthorDTO(SciAuthorDTO sciAuthorDTO) {
+		this.sciAuthorDTO = sciAuthorDTO;
+	}
+
+	public Set<SciBooksReviewDTO> getSciBooksReviewDTO() {
+		return sciBooksReviewDTO;
+	}
+
+	public void setSciBooksReviewDTO(Set<SciBooksReviewDTO> sciBooksReviewDTO) {
+		this.sciBooksReviewDTO = sciBooksReviewDTO;
+	}
 
 }
