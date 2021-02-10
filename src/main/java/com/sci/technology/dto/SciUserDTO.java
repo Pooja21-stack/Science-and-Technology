@@ -8,9 +8,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SciUserDTO extends BaseEntityDTO {
@@ -51,7 +52,7 @@ public class SciUserDTO extends BaseEntityDTO {
 //	Password must contain at least one special character like ! @ # & ( ).
 //	Password must contain a length of at least 8 characters and a maximum of 20 characters.
 	@Column(nullable = false)
-	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$", message = "Invalid Input")
+	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()�[{}]:;',?/*~$^+=<>]).{8,20}", message = "Invalid Input")
 	private String password;
 
 	@Column(nullable = false)
@@ -68,99 +69,13 @@ public class SciUserDTO extends BaseEntityDTO {
 	private Set<SciBooksReviewDTO> setBooksReviewDTO;
 
 	public String getFirstName() {
-		return firstName;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public long getContact() {
-		return contact;
-	}
-
-	public void setContact(long contact) {
-		this.contact = contact;
-	}
-
-	public long getContact2() {
-		return contact2;
-	}
-
-	public void setContact2(long contact2) {
-		this.contact2 = contact2;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public SciUserTypeDTO getSciUserTypeDTO() {
-		return sciUserTypeDTO;
-	}
-
-	public void setSciUserTypeDTO(SciUserTypeDTO sciUserTypeDTO) {
-		this.sciUserTypeDTO = sciUserTypeDTO;
-	}
-
-	public SciDesignationDTO getSciDesignationDTO() {
-		return sciDesignationDTO;
-	}
-
-	public void setSciDesignationDTO(SciDesignationDTO sciDesignationDTO) {
-		this.sciDesignationDTO = sciDesignationDTO;
-	}
-
-	public Set<SciOrderDTO> getSciOrderDTO() {
-		return sciOrderDTO;
-	}
-
-	public void setSciOrderDTO(Set<SciOrderDTO> sciOrderDTO) {
-		this.sciOrderDTO = sciOrderDTO;
-	}
-
-	public Set<SciBooksReviewDTO> getSetBooksReviewDTO() {
-		return setBooksReviewDTO;
-	}
-
-	public void setSetBooksReviewDTO(Set<SciBooksReviewDTO> setBooksReviewDTO) {
-		this.setBooksReviewDTO = setBooksReviewDTO;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public CharSequence getPassword() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	// private json privileges;

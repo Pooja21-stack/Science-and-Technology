@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_author")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Data
 public class SciAuthor extends BaseEntity {
 
 	@Id
@@ -37,6 +37,4 @@ public class SciAuthor extends BaseEntity {
 	// one author can write multiple books
 	@OneToMany(mappedBy = "sciAuthor")
 	private Set<SciBooks> sciBooks;
-
-
 }

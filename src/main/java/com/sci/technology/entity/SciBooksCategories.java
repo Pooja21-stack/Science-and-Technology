@@ -14,10 +14,12 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_books_categories")
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -39,37 +41,5 @@ public class SciBooksCategories extends BaseEntity {
 	// one book_categories can have multiple books.
 	@OneToMany(mappedBy = "sciBooksCategories")
 	private Set<SciBooks> sciBooks;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public SciCategories getSciCategories() {
-		return sciCategories;
-	}
-
-	public void setSciCategories(SciCategories sciCategories) {
-		this.sciCategories = sciCategories;
-	}
-
-	public Set<SciBooks> getSciBooks() {
-		return sciBooks;
-	}
-
-	public void setSciBooks(Set<SciBooks> sciBooks) {
-		this.sciBooks = sciBooks;
-	}
 
 }
