@@ -14,13 +14,15 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_cart")
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciCart extends BaseEntity {
 
 	@Id
@@ -49,45 +51,4 @@ public class SciCart extends BaseEntity {
 	@OneToOne
 	@JoinColumn(name = "id")
 	private SciUser sciUser;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public Set<SciCartItem> getSciCartItem() {
-		return sciCartItem;
-	}
-
-	public void setSciCartItem(Set<SciCartItem> sciCartItem) {
-		this.sciCartItem = sciCartItem;
-	}
-
-	public SciOrder getSciOrder() {
-		return sciOrder;
-	}
-
-	public void setSciOrder(SciOrder sciOrder) {
-		this.sciOrder = sciOrder;
-	}
-
-	public SciUser getSciUser() {
-		return sciUser;
-	}
-
-	public void setSciUser(SciUser sciUser) {
-		this.sciUser = sciUser;
-	}
-
 }

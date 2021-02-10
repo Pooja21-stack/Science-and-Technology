@@ -13,13 +13,15 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_order_item")
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciOrderItem extends BaseEntity {
 
 	@Id
@@ -39,35 +41,4 @@ public class SciOrderItem extends BaseEntity {
 	@OneToOne(mappedBy = "sciOrderItem", cascade = CascadeType.ALL)
 	private SciBooks sciBooks;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public SciOrder getSciOrder() {
-		return sciOrder;
-	}
-
-	public void setSciOrder(SciOrder sciOrder) {
-		this.sciOrder = sciOrder;
-	}
-
-	public SciBooks getSciBooks() {
-		return sciBooks;
-	}
-
-	public void setSciBooks(SciBooks sciBooks) {
-		this.sciBooks = sciBooks;
-	}
 }

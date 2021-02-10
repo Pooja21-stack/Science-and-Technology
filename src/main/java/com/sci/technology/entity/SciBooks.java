@@ -16,13 +16,15 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_books")
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciBooks extends BaseEntity {
 
 	@Id
@@ -76,117 +78,5 @@ public class SciBooks extends BaseEntity {
 
 	@OneToMany(mappedBy = "sciBooks")
 	private Set<SciBooksReview> sciBooksReview;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getSku() {
-		return sku;
-	}
-
-	public void setSku(String sku) {
-		this.sku = sku;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public boolean isAvailable() {
-		return isAvailable;
-	}
-
-	public void setAvailable(boolean isAvailable) {
-		this.isAvailable = isAvailable;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public Date getPublishingDate() {
-		return publishingDate;
-	}
-
-	public void setPublishingDate(Date publishingDate) {
-		this.publishingDate = publishingDate;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public SciAuthor getSciAuthor() {
-		return sciAuthor;
-	}
-
-	public void setSciAuthor(SciAuthor sciAuthor) {
-		this.sciAuthor = sciAuthor;
-	}
-
-	public SciCartItem getSciCartItem() {
-		return sciCartItem;
-	}
-
-	public void setSciCartItem(SciCartItem sciCartItem) {
-		this.sciCartItem = sciCartItem;
-	}
-
-	public SciOrderItem getSciOrderItem() {
-		return sciOrderItem;
-	}
-
-	public void setSciOrderItem(SciOrderItem sciOrderItem) {
-		this.sciOrderItem = sciOrderItem;
-	}
-
-	public SciBooksCategories getSciBooksCategories() {
-		return sciBooksCategories;
-	}
-
-	public void setSciBooksCategories(SciBooksCategories sciBooksCategories) {
-		this.sciBooksCategories = sciBooksCategories;
-	}
-
-	public Set<SciBooksReview> getSciBooksReview() {
-		return sciBooksReview;
-	}
-
-	public void setSciBooksReview(Set<SciBooksReview> sciBooksReview) {
-		this.sciBooksReview = sciBooksReview;
-	}
 
 }

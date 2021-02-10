@@ -12,13 +12,15 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_payment")
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciPayment extends BaseEntity {
 
 	@Id
@@ -47,53 +49,5 @@ public class SciPayment extends BaseEntity {
 	// one payment can have one transaction
 	@OneToOne(mappedBy = "sciPayment", cascade = CascadeType.ALL)
 	private SciTransaction sciTransaction;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public double getAmount() {
-		return amount;
-	}
-
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-
-	public String getMode() {
-		return mode;
-	}
-
-	public void setMode(String mode) {
-		this.mode = mode;
-	}
-
-	public SciOrder getSciOrder() {
-		return sciOrder;
-	}
-
-	public void setSciOrder(SciOrder sciOrder) {
-		this.sciOrder = sciOrder;
-	}
-
-	public SciTransaction getSciTransaction() {
-		return sciTransaction;
-	}
-
-	public void setSciTransaction(SciTransaction sciTransaction) {
-		this.sciTransaction = sciTransaction;
-	}
 
 }

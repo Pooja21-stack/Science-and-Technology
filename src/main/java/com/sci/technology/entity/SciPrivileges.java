@@ -11,13 +11,15 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_privileges")
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciPrivileges extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,37 +40,4 @@ public class SciPrivileges extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "id", insertable = false, updatable = false)
 	private SciUser sciUser;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public SciUserType getSciUserType() {
-		return sciUserType;
-	}
-
-	public void setSciUserType(SciUserType sciUserType) {
-		this.sciUserType = sciUserType;
-	}
-
-	public SciUser getSciUser() {
-		return sciUser;
-	}
-
-	public void setSciUser(SciUser sciUser) {
-		this.sciUser = sciUser;
-	}
-
 }

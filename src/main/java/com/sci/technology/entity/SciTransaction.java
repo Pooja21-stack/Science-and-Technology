@@ -12,13 +12,15 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_transaction")
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciTransaction extends BaseEntity {
 
 	@Id
@@ -47,45 +49,4 @@ public class SciTransaction extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "id", insertable = false, updatable = false)
 	private SciUser sciUser;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public SciPayment getSciPayment() {
-		return sciPayment;
-	}
-
-	public void setSciPayment(SciPayment sciPayment) {
-		this.sciPayment = sciPayment;
-	}
-
-	public SciOrder getSciOrder() {
-		return sciOrder;
-	}
-
-	public void setSciOrder(SciOrder sciOrder) {
-		this.sciOrder = sciOrder;
-	}
-
-	public SciUser getSciUser() {
-		return sciUser;
-	}
-
-	public void setSciUser(SciUser sciUser) {
-		this.sciUser = sciUser;
-	}
-
 }
