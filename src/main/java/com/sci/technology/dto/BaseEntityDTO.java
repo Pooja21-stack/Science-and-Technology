@@ -12,9 +12,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class BaseEntityDTO {
 	protected long id;
 
@@ -36,4 +37,5 @@ public class BaseEntityDTO {
 
 	@Column(nullable = false)
 	protected boolean isActive = true;
+
 }

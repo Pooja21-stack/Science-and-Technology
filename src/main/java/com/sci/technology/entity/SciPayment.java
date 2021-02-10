@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_payment")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciPayment extends BaseEntity {
 
 	@Id

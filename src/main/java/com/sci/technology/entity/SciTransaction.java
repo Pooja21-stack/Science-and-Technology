@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_transaction")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciTransaction extends BaseEntity {
 
 	@Id
@@ -49,5 +49,4 @@ public class SciTransaction extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "id", insertable = false, updatable = false)
 	private SciUser sciUser;
-
 }

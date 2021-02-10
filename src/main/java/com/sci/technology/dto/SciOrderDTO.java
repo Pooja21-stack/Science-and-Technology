@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class SciOrderDTO extends BaseEntityDTO {
 	private SciUserDTO sciUserDTO;
 

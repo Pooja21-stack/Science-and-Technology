@@ -20,10 +20,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_user")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciUserType extends BaseEntity {
 
 	@Id

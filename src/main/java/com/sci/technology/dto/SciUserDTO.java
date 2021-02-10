@@ -11,9 +11,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class SciUserDTO extends BaseEntityDTO {
 
 	@Column(nullable = false)
@@ -38,21 +38,13 @@ public class SciUserDTO extends BaseEntityDTO {
 	@Email(message = "Please provide a valid Email")
 	private String email;
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	// Password must contain at least one digit [0-9].
+// Password must contain at least one digit [0-9].
 //	Password must contain at least one lowercase Latin character [a-z].
 //	Password must contain at least one uppercase Latin character [A-Z].
 //	Password must contain at least one special character like ! @ # & ( ).
 //	Password must contain a length of at least 8 characters and a maximum of 20 characters.
 	@Column(nullable = false)
-	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()�[{}]:;',?/*~$^+=<>]).{8,20}", message = "Invalid Input")
+	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$", message = "Invalid Input")
 	private String password;
 
 	@Column(nullable = false)
@@ -67,16 +59,6 @@ public class SciUserDTO extends BaseEntityDTO {
 	private Set<SciOrderDTO> sciOrderDTO;
 
 	private Set<SciBooksReviewDTO> setBooksReviewDTO;
-
-	public String getFirstName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public CharSequence getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	// private json privileges;
 

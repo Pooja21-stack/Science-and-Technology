@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_privileges")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciPrivileges extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,5 +40,4 @@ public class SciPrivileges extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "id", insertable = false, updatable = false)
 	private SciUser sciUser;
-
 }

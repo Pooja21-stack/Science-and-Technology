@@ -13,10 +13,10 @@ import lombok.*;
 
 @Entity
 @Table(name = "sci_books_review")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciBooksReview extends BaseEntity {
 
 	@Id

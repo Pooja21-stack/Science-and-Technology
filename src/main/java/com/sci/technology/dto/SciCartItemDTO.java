@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class SciCartItemDTO extends BaseEntityDTO {
 
 	private SciBooksDTO sciBooksDTO;

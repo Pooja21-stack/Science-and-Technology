@@ -19,10 +19,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_books_categories")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciBooksCategories extends BaseEntity {
 
 	@Id

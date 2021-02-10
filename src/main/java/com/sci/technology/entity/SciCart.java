@@ -19,10 +19,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_cart")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciCart extends BaseEntity {
 
 	@Id
@@ -51,5 +51,4 @@ public class SciCart extends BaseEntity {
 	@OneToOne
 	@JoinColumn(name = "id")
 	private SciUser sciUser;
-
 }

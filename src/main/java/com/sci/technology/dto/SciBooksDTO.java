@@ -13,9 +13,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class SciBooksDTO extends BaseEntityDTO {
 	@Column(nullable = false)
 	@Pattern(regexp = "^[A-Za-z]*$", message = "Invalid Input")
@@ -48,6 +48,6 @@ public class SciBooksDTO extends BaseEntityDTO {
 	private SciAuthorDTO sciAuthorDTO;
 
 	private Set<SciBooksReviewDTO> sciBooksReviewDTO;
-//	
+
 
 }

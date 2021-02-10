@@ -6,14 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class SciPrivilegesDTO extends BaseEntityDTO {
 
 	private SciUserDTO sciUserDTO;
 
 	@Column(nullable = false)
 	private String role;
-
 }

@@ -21,10 +21,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_order")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciOrder extends BaseEntity {
 
 	@Id

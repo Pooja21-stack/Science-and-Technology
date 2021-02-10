@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class SciBooksReviewDTO extends BaseEntityDTO {
 	
 	@Column(nullable = false)

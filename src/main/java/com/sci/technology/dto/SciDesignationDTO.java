@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class SciDesignationDTO extends BaseEntityDTO {
 
 	@Column(nullable = false)

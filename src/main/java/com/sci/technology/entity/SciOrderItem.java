@@ -18,10 +18,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_order_item")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciOrderItem extends BaseEntity {
 
 	@Id
@@ -40,4 +40,5 @@ public class SciOrderItem extends BaseEntity {
 	// one order_item can have one book.
 	@OneToOne(mappedBy = "sciOrderItem", cascade = CascadeType.ALL)
 	private SciBooks sciBooks;
+
 }

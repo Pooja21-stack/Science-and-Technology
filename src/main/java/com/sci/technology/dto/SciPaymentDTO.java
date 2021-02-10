@@ -8,9 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class SciPaymentDTO extends BaseEntityDTO {
 
 	@Column(nullable = false)
@@ -26,5 +27,4 @@ public class SciPaymentDTO extends BaseEntityDTO {
 	private SciOrderDTO sciOrderDTO;
 
 	private SciTransactionDTO sciTransactionDTO;
-
 }

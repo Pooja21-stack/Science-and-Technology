@@ -9,9 +9,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class SciCategoriesDTO extends BaseEntityDTO {
 	
 	@Column(nullable = false)
@@ -22,5 +22,4 @@ public class SciCategoriesDTO extends BaseEntityDTO {
 	private String description;
 
 	private Set<SciBooksCategoriesDTO> sciBooksCategorieDTOs;
-
 }

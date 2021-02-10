@@ -18,10 +18,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_cart_item")
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciCartItem extends BaseEntity {
 
 	@Id

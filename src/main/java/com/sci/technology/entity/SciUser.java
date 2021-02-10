@@ -20,10 +20,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Data
 public class SciUser extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -85,4 +85,5 @@ public class SciUser extends BaseEntity {
 	// one user can have one designation
 	@OneToOne(mappedBy = "sciUser", cascade = CascadeType.ALL)
 	private SciDesignation sciDesignation;
+
 }
