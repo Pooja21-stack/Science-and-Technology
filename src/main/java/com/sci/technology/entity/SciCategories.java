@@ -10,31 +10,62 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sci_categories")
-@Data
 @Builder
-public class SciCategories extends BaseEntity{
-	
+@AllArgsConstructor
+@NoArgsConstructor
+public class SciCategories extends BaseEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sciCategoriesId")
-    protected long id;
-	
-	@Column(nullable = false)
+	@Column(name = "id")
+	protected long id;
+
+	@Column(name = "name", nullable = false)
 	private String name;
 
-	@Column(nullable = false)
+	@Column(name = "description", nullable = false)
 	private String description;
-	
-//	//@Column(nullable = false)
-//	private long sciCategoriesId;
-	
-	//one categories can have multiple booksCategories.
-	@OneToMany(mappedBy="sciCategories")
+
+	// one categories can have multiple booksCategories.
+	@OneToMany(mappedBy = "sciCategories")
 	private Set<SciBooksCategories> sciBooksCategories;
-	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Set<SciBooksCategories> getSciBooksCategories() {
+		return sciBooksCategories;
+	}
+
+	public void setSciBooksCategories(Set<SciBooksCategories> sciBooksCategories) {
+		this.sciBooksCategories = sciBooksCategories;
+	}
+
 }

@@ -1,26 +1,38 @@
 package com.sci.technology.dto;
 
-import java.util.Set;
-
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Pattern;
 
-import com.sci.technology.entity.SciBooks;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class SciAuthorDTO extends BaseEntityDTO{
-	
+public class SciAuthorDTO extends BaseEntityDTO {
+
 	@Column(nullable = false)
-	@Pattern(regexp="^[A-Za-z]*$",message = "Invalid Input")
-    private String name;
-	
+	@Pattern(regexp = "^[A-Za-z]*$", message = "Invalid Input")
+	private String name;
+
 	private String image;
-	
-   
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 }

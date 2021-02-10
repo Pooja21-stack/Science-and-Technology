@@ -2,21 +2,31 @@ package com.sci.technology.dto;
 
 import java.util.Set;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-import com.sci.technology.entity.SciBooks;
-import com.sci.technology.entity.SciCategories;
-
-import lombok.Data;
-
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class SciBooksCategoriesDTO extends BaseEntityDTO {
-	
-    private Set<SciBooksDTO> sciBooksDTO;
-    
-    private Set<SciCategoriesDTO> sciCategoriesDTO;
-	
-   
+
+	private Set<SciBooksDTO> sciBooksDTO;
+
+	private Set<SciCategoriesDTO> sciCategoriesDTO;
+
+	public Set<SciBooksDTO> getSciBooksDTO() {
+		return sciBooksDTO;
+	}
+
+	public void setSciBooksDTO(Set<SciBooksDTO> sciBooksDTO) {
+		this.sciBooksDTO = sciBooksDTO;
+	}
+
+	public Set<SciCategoriesDTO> getSciCategoriesDTO() {
+		return sciCategoriesDTO;
+	}
+
+	public void setSciCategoriesDTO(Set<SciCategoriesDTO> sciCategoriesDTO) {
+		this.sciCategoriesDTO = sciCategoriesDTO;
+	}
+
 }

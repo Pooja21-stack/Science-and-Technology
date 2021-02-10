@@ -5,9 +5,11 @@ import org.mapstruct.Mapper;
 import com.sci.technology.dto.SciUserTypeDTO;
 import com.sci.technology.entity.SciUserType;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface SciUserTypeMapper {
+
 	SciUserTypeDTO toDto(SciUserType sciUserType);
+
 	SciUserType fromDto(SciUserTypeDTO sciUserTypeDTO);
 
 }

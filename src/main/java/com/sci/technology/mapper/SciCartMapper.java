@@ -5,9 +5,11 @@ import org.mapstruct.Mapper;
 import com.sci.technology.dto.SciCartDTO;
 import com.sci.technology.entity.SciCart;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface SciCartMapper {
+	
 	SciCartDTO toDto(SciCart sciCart);
+
 	SciCart fromDto(SciCartDTO sciCartDTO);
 
 }

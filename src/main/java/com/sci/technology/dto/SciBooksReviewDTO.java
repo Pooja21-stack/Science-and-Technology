@@ -1,25 +1,46 @@
 package com.sci.technology.dto;
 
-import java.util.Set;
-
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.Pattern;
 
-import com.sci.technology.entity.SciBooks;
-import com.sci.technology.entity.SciUser;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-import lombok.Data;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class SciBooksReviewDTO extends BaseEntityDTO {
+	
 	@Column(nullable = false)
-	@Pattern(regexp="^[A-Za-z]*$",message = "Invalid Input")
-    private String title;
-	
-    private int rating;
-	
-    private String description;
-	
+	@Pattern(regexp = "^[A-Za-z]*$", message = "Invalid Input")
+	private String title;
+
+	private int rating;
+
+	private String description;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 }

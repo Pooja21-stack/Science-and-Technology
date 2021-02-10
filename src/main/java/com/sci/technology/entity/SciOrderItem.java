@@ -11,40 +11,63 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "sci_order_item")
-@Data
 @Builder
-public class SciOrderItem extends BaseEntity{
-	
+@AllArgsConstructor
+@NoArgsConstructor
+public class SciOrderItem extends BaseEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected long id;
-	
-	@Column(nullable = false)
-    private long sciOrderId;
-  
-	@Column(nullable = false)
-    private String sku;
- 
-	@Column(nullable = false)
-    private long sciBooksId;
-   
-	@Column(nullable = false)
-    private int quantity;
-   
-	@Column(nullable = false)
-    private String content;
-    
-    //one order can have multiple order_items
-    @ManyToOne
-    @JoinColumn(name="id", nullable=false)
-    private SciOrder order;
-    
-  //one order_item can have one book.
-    @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "id", referencedColumnName = "id")
-	 private SciBook books;
+	@Column(name = "id")
+	protected long id;
+
+	@Column(name = "quantity", nullable = false)
+	private int quantity;
+
+	// one order can have multiple order_items
+	@ManyToOne
+	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+	private SciOrder sciOrder;
+
+	// one order_item can have one book.
+	@OneToOne(mappedBy = "sciOrderItem", cascade = CascadeType.ALL)
+	private SciBooks sciBooks;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public SciOrder getSciOrder() {
+		return sciOrder;
+	}
+
+	public void setSciOrder(SciOrder sciOrder) {
+		this.sciOrder = sciOrder;
+	}
+
+	public SciBooks getSciBooks() {
+		return sciBooks;
+	}
+
+	public void setSciBooks(SciBooks sciBooks) {
+		this.sciBooks = sciBooks;
+	}
 }

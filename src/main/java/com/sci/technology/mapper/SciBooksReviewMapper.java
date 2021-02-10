@@ -7,11 +7,13 @@ import org.mapstruct.Mapper;
 import com.sci.technology.dto.SciBooksReviewDTO;
 import com.sci.technology.entity.SciBooksReview;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface SciBooksReviewMapper {
-	SciBooksReviewDTO toDto(SciBooksReview sciBooksReview);
-	SciBooksReview fromDto(SciBooksReviewDTO sciBooksReviewDTO);
 	
+	SciBooksReviewDTO toDto(SciBooksReview sciBooksReview);
+
+	SciBooksReview fromDto(SciBooksReviewDTO sciBooksReviewDTO);
+
 	List<SciBooksReviewDTO> toDtos(List<SciBooksReview> sciBooksReview);
 
 }
