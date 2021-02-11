@@ -35,8 +35,8 @@ public class SciOrder extends BaseEntity {
 	@Column(name = "delivery_address", nullable = false)
 	private String delivery_address;
 
-	enum status {
-		pending, complete, inProgress;
+	public enum status{
+		pending, inProgress, complete;
 	}
 
 	@Column(name = "total", nullable = false)

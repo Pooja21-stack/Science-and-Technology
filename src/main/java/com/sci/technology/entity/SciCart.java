@@ -30,13 +30,12 @@ public class SciCart extends BaseEntity {
 	@Column(name = "id")
 	protected long id;
 
-//	@Column(name = "status")
-
 	@Column(name = "status")
 	private String status;
-//	enum status{
-//		pending, complete, inProgress;
-//	}
+
+	public enum status{
+	pending, inProgress, complete;
+	}
 
 	// one cart can contain multiple cart items
 	@OneToMany(mappedBy = "sciCart")

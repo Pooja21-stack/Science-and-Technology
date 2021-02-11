@@ -31,9 +31,10 @@ public class SciTransaction extends BaseEntity {
 	@Column(name = "content", nullable = false)
 	private String content;
 
-//	enum status{
-//		pending, complete, inProgress;
-//	}
+	//@Column(name = "status", nullable = false)
+	public enum status{
+		pending, inProgress, complete;
+	}
 
 	// one payment can have one transaction
 	@OneToOne
