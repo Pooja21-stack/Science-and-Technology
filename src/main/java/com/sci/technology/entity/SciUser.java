@@ -1,5 +1,6 @@
 package com.sci.technology.entity;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -25,6 +26,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class SciUser extends BaseEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -85,5 +87,17 @@ public class SciUser extends BaseEntity {
 	// one user can have one designation
 	@OneToOne(mappedBy = "sciUser", cascade = CascadeType.ALL)
 	private SciDesignation sciDesignation;
+
+	public SciUser(String firstName, String middleName, String lastName, long contact, String email, String password,
+			String address, String image) {
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.contact = contact;
+		this.email = email;
+		this.password = password;
+		this.address = address;
+		this.image = image;
+	}
 
 }

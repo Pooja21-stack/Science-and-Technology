@@ -12,6 +12,8 @@ public class TemplateController {
     public String getLoginView() {
         return "login";
     }
+    
+     
 
     @GetMapping("books")
     public String getBooksView() {
